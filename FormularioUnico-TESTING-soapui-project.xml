@@ -1,0 +1,1782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="bf796350-789e-427a-a33e-599daf6445bf" activeEnvironment="Default" name="FormularioUnico - TESTING" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="adfbc7dd-44df-43d4-a051-7dbf500261d4" wsaVersion="NONE" name="PresentacionSoap" type="wsdl" bindingName="{http://tempuri.org/}PresentacionSoap" soapVersion="1_1" anonymous="optional" definition="https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/Presentacion.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/Presentacion.asmx?WSDL"><con:part><con:url>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/Presentacion.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="InicioDePresentacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:InicioDePresentacionRequest"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InicioDePresentacionRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cuit" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="IdMotivo" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="FechaPresentacionEmpleador" type="s:date"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InicioDePresentacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InicioDePresentacionResult" type="tns:InicioDePresentacionResponse"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InicioDePresentacionResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PresentacionId" type="s:long"/>
+              <s:element minOccurs="1" maxOccurs="1" name="NumeroDePoliza" type="s:long"/>
+              <s:element minOccurs="0" maxOccurs="1" name="cuit" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="IdMotivo" nillable="true" type="s:long"/>
+              <s:element minOccurs="1" maxOccurs="1" name="FechaPresentacionEmpleador" type="s:date"/>
+              <s:element minOccurs="1" maxOccurs="1" name="FechaInsert" type="s:date"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ResponseBase">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:AbstractResponse"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AbstractResponse" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoOrganismo" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="IdOrganismo" type="s:long"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TicketHeader" type="tns:TicketHeader"/>
+      <s:complexType name="TicketHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="securityticket" type="s:string"/>
+        </s:sequence>
+        <s:anyAttribute/>
+      </s:complexType>
+      <s:element name="ConsolidarPresentacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:ConsolidarPresentacionRequest"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ConsolidarPresentacionRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdPresentacion" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Cuit" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsolidarPresentacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsolidarPresentacionResult" type="tns:ConsolidarPresentacionResponse"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ConsolidarPresentacionResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IdPresentacion" type="s:long"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Cuit" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="fechaDeConsolidacion" type="s:date"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="CancelarPresentacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:CancelarPresentacionRequest"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CancelarPresentacionRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdPresentacion" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Cuit" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CancelarPresentacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelarPresentacionResult" type="tns:CancelarPresentacionResponse"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CancelarPresentacionResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BajaBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IdPresentacion" type="s:long"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Cuit" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BajaBase">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:AbstractResponse"/>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InicioDePresentacionSoapIn">
+    <wsdl:part name="parameters" element="tns:InicioDePresentacion"/>
+  </wsdl:message>
+  <wsdl:message name="InicioDePresentacionSoapOut">
+    <wsdl:part name="parameters" element="tns:InicioDePresentacionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="InicioDePresentacionTicketHeader">
+    <wsdl:part name="TicketHeader" element="tns:TicketHeader"/>
+  </wsdl:message>
+  <wsdl:message name="ConsolidarPresentacionSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsolidarPresentacion"/>
+  </wsdl:message>
+  <wsdl:message name="ConsolidarPresentacionSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsolidarPresentacionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ConsolidarPresentacionTicketHeader">
+    <wsdl:part name="TicketHeader" element="tns:TicketHeader"/>
+  </wsdl:message>
+  <wsdl:message name="CancelarPresentacionSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelarPresentacion"/>
+  </wsdl:message>
+  <wsdl:message name="CancelarPresentacionSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelarPresentacionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CancelarPresentacionTicketHeader">
+    <wsdl:part name="TicketHeader" element="tns:TicketHeader"/>
+  </wsdl:message>
+  <wsdl:portType name="PresentacionSoap">
+    <wsdl:operation name="InicioDePresentacion">
+      <wsdl:input message="tns:InicioDePresentacionSoapIn"/>
+      <wsdl:output message="tns:InicioDePresentacionSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ConsolidarPresentacion">
+      <wsdl:input message="tns:ConsolidarPresentacionSoapIn"/>
+      <wsdl:output message="tns:ConsolidarPresentacionSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarPresentacion">
+      <wsdl:input message="tns:CancelarPresentacionSoapIn"/>
+      <wsdl:output message="tns:CancelarPresentacionSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PresentacionSoap" type="tns:PresentacionSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="InicioDePresentacion">
+      <soap:operation soapAction="http://tempuri.org/InicioDePresentacion" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:InicioDePresentacionTicketHeader" part="TicketHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsolidarPresentacion">
+      <soap:operation soapAction="http://tempuri.org/ConsolidarPresentacion" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:ConsolidarPresentacionTicketHeader" part="TicketHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarPresentacion">
+      <soap:operation soapAction="http://tempuri.org/CancelarPresentacion" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:CancelarPresentacionTicketHeader" part="TicketHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PresentacionSoap12" type="tns:PresentacionSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="InicioDePresentacion">
+      <soap12:operation soapAction="http://tempuri.org/InicioDePresentacion" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:InicioDePresentacionTicketHeader" part="TicketHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsolidarPresentacion">
+      <soap12:operation soapAction="http://tempuri.org/ConsolidarPresentacion" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:ConsolidarPresentacionTicketHeader" part="TicketHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarPresentacion">
+      <soap12:operation soapAction="http://tempuri.org/CancelarPresentacion" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:CancelarPresentacionTicketHeader" part="TicketHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Presentacion">
+    <wsdl:port name="PresentacionSoap" binding="tns:PresentacionSoap">
+      <soap:address location="https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/Presentacion.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="PresentacionSoap12" binding="tns:PresentacionSoap12">
+      <soap12:address location="https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/Presentacion.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/Presentacion.asmx</con:endpoint></con:endpoints><con:operation id="832c8a5b-5541-4db9-97e0-94d7a5a31339" isOneWay="false" action="http://tempuri.org/CancelarPresentacion" name="CancelarPresentacion" bindingOperationName="CancelarPresentacion" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8a9371dd-e8ef-435f-a058-fc08a5175439" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/Presentacion.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header>\r
+      <tem:TicketHeader>\r
+    		<tem:securityticket>${#Project#Ticket}</tem:securityticket>
+      </tem:TicketHeader>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <tem:CancelarPresentacion>\r
+         <tem:request>\r
+            <tem:IdPresentacion>?</tem:IdPresentacion>\r
+            <!--Optional:-->\r
+            <tem:Cuit>?</tem:Cuit>\r
+         </tem:request>\r
+      </tem:CancelarPresentacion>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/CancelarPresentacion"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c1eebbeb-faaf-4a6f-b52d-4edfff345c63" isOneWay="false" action="http://tempuri.org/ConsolidarPresentacion" name="ConsolidarPresentacion" bindingOperationName="ConsolidarPresentacion" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7f6ccbc2-1971-4606-83eb-4899a09c499a" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/Presentacion.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header>\r
+      <tem:TicketHeader>\r
+         <tem:securityticket>${#Project#Ticket}</tem:securityticket>
+      </tem:TicketHeader>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <tem:ConsolidarPresentacion>\r
+         <tem:request>\r
+            <tem:IdPresentacion>?</tem:IdPresentacion>\r
+            <!--Optional:-->\r
+            <tem:Cuit>?</tem:Cuit>\r
+         </tem:request>\r
+      </tem:ConsolidarPresentacion>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/ConsolidarPresentacion"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="17ffc630-f87a-46cf-a74f-302fee74a09e" isOneWay="false" action="http://tempuri.org/InicioDePresentacion" name="InicioDePresentacion" bindingOperationName="InicioDePresentacion" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b231ac82-a560-43b0-8b95-99cdbf67738e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/Presentacion.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header>\r
+      <tem:TicketHeader>\r
+         <tem:securityticket>${#Project#Ticket}</tem:securityticket>
+      </tem:TicketHeader>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <tem:InicioDePresentacion>\r
+         <tem:request>\r
+            <!--Optional:-->\r
+            <tem:Cuit>?</tem:Cuit>\r
+            <!--Optional:-->\r
+            <tem:Observaciones>?</tem:Observaciones>\r
+            <tem:IdMotivo>?</tem:IdMotivo>\r
+            <tem:FechaPresentacionEmpleador>?</tem:FechaPresentacionEmpleador>\r
+         </tem:request>\r
+      </tem:InicioDePresentacion>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/InicioDePresentacion"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="5ffd92ba-5077-48a7-8aa9-0e040eb6425e" wsaVersion="NONE" name="NominaSoap" type="wsdl" bindingName="{http://tempuri.org/}NominaSoap" soapVersion="1_1" anonymous="optional" definition="https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/Nomina.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/Nomina.asmx</con:endpoint></con:endpoints><con:operation id="73c70fcd-b8db-4728-90d0-f6846322f6a5" isOneWay="false" action="http://tempuri.org/AltaDeNomina" name="AltaDeNomina" bindingOperationName="AltaDeNomina" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7e8ebf2f-c5e7-448a-b1b8-a7d8918b92fc" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/Nomina.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header>\r
+      <tem:TicketHeader>\r
+         <!--Optional:-->\r
+         <tem:securityticket>?</tem:securityticket>\r
+      </tem:TicketHeader>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <tem:AltaDeNomina>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <!--Optional:-->\r
+            <tem:cuit>?</tem:cuit>\r
+            <!--Optional:-->\r
+            <tem:Trabajadores>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:Trabajador>\r
+                  <!--Optional:-->\r
+                  <tem:cuil>?</tem:cuil>\r
+                  <tem:idTrabajador>?</tem:idTrabajador>\r
+                  <tem:fechaIngreso>?</tem:fechaIngreso>\r
+                  <tem:idEstablecimientoEmpresa>?</tem:idEstablecimientoEmpresa>\r
+                  <!--Optional:-->\r
+                  <tem:Actividades>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Actividad>\r
+                        <tem:idActividad>?</tem:idActividad>\r
+                        <tem:idEstablecimientoEmpresa>?</tem:idEstablecimientoEmpresa>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <tem:idPuestoDeclarado>?</tem:idPuestoDeclarado>\r
+                        <tem:idSectorDeclarado>?</tem:idSectorDeclarado>\r
+                        <tem:permanente>?</tem:permanente>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:fechaInicioExposicion>?</tem:fechaInicioExposicion>\r
+                        <tem:fechaFinExposicion>?</tem:fechaFinExposicion>\r
+                        <!--Optional:-->\r
+                        <tem:ExamenesMedicos>\r
+                           <!--Zero or more repetitions:-->\r
+                           <tem:ExamenMedico>\r
+                              <tem:idExamenDeclarado>?</tem:idExamenDeclarado>\r
+                              <tem:idExamen>?</tem:idExamen>\r
+                           </tem:ExamenMedico>\r
+                        </tem:ExamenesMedicos>\r
+                     </tem:Actividad>\r
+                  </tem:Actividades>\r
+               </tem:Trabajador>\r
+            </tem:Trabajadores>\r
+         </tem:request>\r
+      </tem:AltaDeNomina>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/AltaDeNomina"/></con:call></con:operation><con:operation id="871be587-2836-4ffe-bd9c-55d12b8e2a5e" isOneWay="false" action="http://tempuri.org/BajaDeNomina" name="BajaDeNomina" bindingOperationName="BajaDeNomina" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4e927b81-bc9a-43c9-93ad-1f6e989369ba" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/Nomina.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header>\r
+      <tem:TicketHeader>\r
+         <!--Optional:-->\r
+         <tem:securityticket>?</tem:securityticket>\r
+      </tem:TicketHeader>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <tem:BajaDeNomina>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <!--Optional:-->\r
+            <tem:Cuit>?</tem:Cuit>\r
+            <!--Optional:-->\r
+            <tem:Actividades>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:Actividad>\r
+                  <tem:idTrabajador>?</tem:idTrabajador>\r
+                  <tem:idActividad>?</tem:idActividad>\r
+                  <!--Optional:-->\r
+                  <tem:ExamenesMedicos>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:IdExamenMedico>?</tem:IdExamenMedico>\r
+                  </tem:ExamenesMedicos>\r
+               </tem:Actividad>\r
+            </tem:Actividades>\r
+         </tem:request>\r
+      </tem:BajaDeNomina>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/BajaDeNomina"/></con:call></con:operation><con:operation id="e1cacd7c-084a-4399-a760-8018c1c29b7d" isOneWay="false" action="http://tempuri.org/ModificacionDeNomina" name="ModificacionDeNomina" bindingOperationName="ModificacionDeNomina" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6da9eb7a-09c8-457f-aef1-4dec65415ae6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/Nomina.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header>\r
+      <tem:TicketHeader>\r
+         <!--Optional:-->\r
+         <tem:securityticket>?</tem:securityticket>\r
+      </tem:TicketHeader>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <tem:ModificacionDeNomina>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <!--Optional:-->\r
+            <tem:cuit>?</tem:cuit>\r
+            <!--Optional:-->\r
+            <tem:Trabajadores>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:Trabajador>\r
+                  <!--Optional:-->\r
+                  <tem:cuil>?</tem:cuil>\r
+                  <tem:idTrabajador>?</tem:idTrabajador>\r
+                  <tem:fechaIngreso>?</tem:fechaIngreso>\r
+                  <tem:idEstablecimientoEmpresa>?</tem:idEstablecimientoEmpresa>\r
+                  <!--Optional:-->\r
+                  <tem:Actividades>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Actividad>\r
+                        <tem:idActividad>?</tem:idActividad>\r
+                        <tem:idEstablecimientoEmpresa>?</tem:idEstablecimientoEmpresa>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <tem:idPuestoDeclarado>?</tem:idPuestoDeclarado>\r
+                        <tem:idSectorDeclarado>?</tem:idSectorDeclarado>\r
+                        <tem:permanente>?</tem:permanente>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:fechaInicioExposicion>?</tem:fechaInicioExposicion>\r
+                        <tem:fechaFinExposicion>?</tem:fechaFinExposicion>\r
+                        <!--Optional:-->\r
+                        <tem:ExamenesMedicos>\r
+                           <!--Zero or more repetitions:-->\r
+                           <tem:ExamenMedico>\r
+                              <tem:idExamenDeclarado>?</tem:idExamenDeclarado>\r
+                              <tem:idExamen>?</tem:idExamen>\r
+                           </tem:ExamenMedico>\r
+                        </tem:ExamenesMedicos>\r
+                     </tem:Actividad>\r
+                  </tem:Actividades>\r
+               </tem:Trabajador>\r
+            </tem:Trabajadores>\r
+         </tem:request>\r
+      </tem:ModificacionDeNomina>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/ModificacionDeNomina"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="4b1337dc-ffd0-40ef-87dc-d1339a8a322e" wsaVersion="NONE" name="AnexoISoap" type="wsdl" bindingName="{http://tempuri.org/}AnexoISoap" soapVersion="1_1" anonymous="optional" definition="https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/AnexoI.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/AnexoI.asmx</con:endpoint></con:endpoints><con:operation id="31822e25-ca21-4f8e-b6a4-a145b92a358e" isOneWay="false" action="http://tempuri.org/AltaDeAnexoI" name="AltaDeAnexoI" bindingOperationName="AltaDeAnexoI" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="adc0dff9-bd7f-47ad-b72e-68bd67576f76" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/AnexoI.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header>\r
+      <tem:TicketHeader>\r
+         <!--Optional:-->\r
+         <tem:securityticket>?</tem:securityticket>\r
+      </tem:TicketHeader>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <tem:AltaDeAnexoI>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <!--Optional:-->\r
+            <tem:Cuit>?</tem:Cuit>\r
+            <!--Optional:-->\r
+            <tem:EstablecimientosDeclarados>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:EstablecimientoDeclarado>\r
+                  <tem:idEstablecimientoDeclarado>?</tem:idEstablecimientoDeclarado>\r
+                  <tem:idEstablecimientoEmpresa>?</tem:idEstablecimientoEmpresa>\r
+                  <!--Optional:-->\r
+                  <tem:descripcionActividad>?</tem:descripcionActividad>\r
+                  <tem:cantTrabEventualesProd>?</tem:cantTrabEventualesProd>\r
+                  <tem:cantTrabEventualesAdmin>?</tem:cantTrabEventualesAdmin>\r
+                  <tem:cantTrabPropiosProd>?</tem:cantTrabPropiosProd>\r
+                  <tem:cantTrabPropiosAdmin>?</tem:cantTrabPropiosAdmin>\r
+                  <!--Optional:-->\r
+                  <tem:mail>?</tem:mail>\r
+                  <!--Optional:-->\r
+                  <tem:telefono>?</tem:telefono>\r
+                  <!--Optional:-->\r
+                  <tem:cuilContacto>?</tem:cuilContacto>\r
+                  <tem:permitidoFumar>?</tem:permitidoFumar>\r
+                  <tem:lugaresCerradosParaFumar>?</tem:lugaresCerradosParaFumar>\r
+                  <!--Optional:-->\r
+                  <tem:Puestos>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Puesto>\r
+                        <tem:idPuesto>?</tem:idPuesto>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <!--Optional:-->\r
+                        <tem:nombre>?</tem:nombre>\r
+                        <tem:ciuo>?</tem:ciuo>\r
+                     </tem:Puesto>\r
+                  </tem:Puestos>\r
+                  <!--Optional:-->\r
+                  <tem:Sectores>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Sector>\r
+                        <tem:idSector>?</tem:idSector>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <!--Optional:-->\r
+                        <tem:nombre>?</tem:nombre>\r
+                        <tem:ciiu>?</tem:ciiu>\r
+                     </tem:Sector>\r
+                  </tem:Sectores>\r
+                  <!--Optional:-->\r
+                  <tem:Responsables>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Responsable>\r
+                        <tem:idResponsable>?</tem:idResponsable>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <tem:cuilCuit>?</tem:cuilCuit>\r
+                        <tem:idContratacion>?</tem:idContratacion>\r
+                        <tem:idRepresentacion>?</tem:idRepresentacion>\r
+                        <tem:idTipoProfesionalResponsable>?</tem:idTipoProfesionalResponsable>\r
+                        <!--Optional:-->\r
+                        <tem:matricula>?</tem:matricula>\r
+                        <tem:cantHorasAsignadas>?</tem:cantHorasAsignadas>\r
+                     </tem:Responsable>\r
+                  </tem:Responsables>\r
+                  <!--Optional:-->\r
+                  <tem:Contratistas>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Contratista>\r
+                        <tem:idContratista>?</tem:idContratista>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <!--Optional:-->\r
+                        <tem:cuit>?</tem:cuit>\r
+                        <tem:ciiu>?</tem:ciiu>\r
+                        <tem:cantidadTrabajadores>?</tem:cantidadTrabajadores>\r
+                     </tem:Contratista>\r
+                  </tem:Contratistas>\r
+               </tem:EstablecimientoDeclarado>\r
+            </tem:EstablecimientosDeclarados>\r
+            <!--Optional:-->\r
+            <tem:EmpresasTercerizadas>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:EmpresaTercerizada>\r
+                  <tem:idEmpresaTercerizada>?</tem:idEmpresaTercerizada>\r
+                  <tem:fechaInsert>?</tem:fechaInsert>\r
+                  <tem:idEstablecimientoEmpresa>?</tem:idEstablecimientoEmpresa>\r
+                  <!--Optional:-->\r
+                  <tem:cuit>?</tem:cuit>\r
+                  <tem:ciiu>?</tem:ciiu>\r
+                  <tem:cantidadTrabajadores>?</tem:cantidadTrabajadores>\r
+               </tem:EmpresaTercerizada>\r
+            </tem:EmpresasTercerizadas>\r
+         </tem:request>\r
+      </tem:AltaDeAnexoI>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/AltaDeAnexoI"/></con:call></con:operation><con:operation id="722a58fb-1bd1-4911-96bf-a7946d010803" isOneWay="false" action="http://tempuri.org/BajaDeAnexoI" name="BajaDeAnexoI" bindingOperationName="BajaDeAnexoI" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7fd5018d-420d-4926-bcf7-6f6dccf326e4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/AnexoI.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header>\r
+      <tem:TicketHeader>\r
+         <!--Optional:-->\r
+         <tem:securityticket>?</tem:securityticket>\r
+      </tem:TicketHeader>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <tem:BajaDeAnexoI>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <!--Optional:-->\r
+            <tem:cuit>?</tem:cuit>\r
+            <!--Optional:-->\r
+            <tem:EstablecimientosDeclarados>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdEstablecimientoDeclarado>?</tem:IdEstablecimientoDeclarado>\r
+            </tem:EstablecimientosDeclarados>\r
+            <!--Optional:-->\r
+            <tem:Puestos>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdPuesto>?</tem:IdPuesto>\r
+            </tem:Puestos>\r
+            <!--Optional:-->\r
+            <tem:Sectores>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdSector>?</tem:IdSector>\r
+            </tem:Sectores>\r
+            <!--Optional:-->\r
+            <tem:Contratistas>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdContratista>?</tem:IdContratista>\r
+            </tem:Contratistas>\r
+            <!--Optional:-->\r
+            <tem:Responsables>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdResponsable>?</tem:IdResponsable>\r
+            </tem:Responsables>\r
+            <!--Optional:-->\r
+            <tem:EmpresasTercerizadas>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdEmpresaTercerizada>?</tem:IdEmpresaTercerizada>\r
+            </tem:EmpresasTercerizadas>\r
+         </tem:request>\r
+      </tem:BajaDeAnexoI>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/BajaDeAnexoI"/></con:call></con:operation><con:operation id="b95ff7ff-fb08-45c1-a788-a7a0de36ebd8" isOneWay="false" action="http://tempuri.org/ModificacionDeAnexoI" name="ModificacionDeAnexoI" bindingOperationName="ModificacionDeAnexoI" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bf43f9fe-2a05-446c-9ff4-852ab4a1f3a5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/AnexoI.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header>\r
+      <tem:TicketHeader>\r
+         <!--Optional:-->\r
+         <tem:securityticket>?</tem:securityticket>\r
+      </tem:TicketHeader>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <tem:ModificacionDeAnexoI>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <!--Optional:-->\r
+            <tem:Cuit>?</tem:Cuit>\r
+            <!--Optional:-->\r
+            <tem:EstablecimientosDeclarados>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:EstablecimientoDeclarado>\r
+                  <tem:idEstablecimientoDeclarado>?</tem:idEstablecimientoDeclarado>\r
+                  <tem:idEstablecimientoEmpresa>?</tem:idEstablecimientoEmpresa>\r
+                  <!--Optional:-->\r
+                  <tem:descripcionActividad>?</tem:descripcionActividad>\r
+                  <tem:cantTrabEventualesProd>?</tem:cantTrabEventualesProd>\r
+                  <tem:cantTrabEventualesAdmin>?</tem:cantTrabEventualesAdmin>\r
+                  <tem:cantTrabPropiosProd>?</tem:cantTrabPropiosProd>\r
+                  <tem:cantTrabPropiosAdmin>?</tem:cantTrabPropiosAdmin>\r
+                  <!--Optional:-->\r
+                  <tem:mail>?</tem:mail>\r
+                  <!--Optional:-->\r
+                  <tem:telefono>?</tem:telefono>\r
+                  <!--Optional:-->\r
+                  <tem:cuilContacto>?</tem:cuilContacto>\r
+                  <tem:permitidoFumar>?</tem:permitidoFumar>\r
+                  <tem:lugaresCerradosParaFumar>?</tem:lugaresCerradosParaFumar>\r
+                  <!--Optional:-->\r
+                  <tem:Puestos>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Puesto>\r
+                        <tem:idPuesto>?</tem:idPuesto>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <!--Optional:-->\r
+                        <tem:nombre>?</tem:nombre>\r
+                        <tem:ciuo>?</tem:ciuo>\r
+                     </tem:Puesto>\r
+                  </tem:Puestos>\r
+                  <!--Optional:-->\r
+                  <tem:Sectores>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Sector>\r
+                        <tem:idSector>?</tem:idSector>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <!--Optional:-->\r
+                        <tem:nombre>?</tem:nombre>\r
+                        <tem:ciiu>?</tem:ciiu>\r
+                     </tem:Sector>\r
+                  </tem:Sectores>\r
+                  <!--Optional:-->\r
+                  <tem:Responsables>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Responsable>\r
+                        <tem:idResponsable>?</tem:idResponsable>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <tem:cuilCuit>?</tem:cuilCuit>\r
+                        <tem:idContratacion>?</tem:idContratacion>\r
+                        <tem:idRepresentacion>?</tem:idRepresentacion>\r
+                        <tem:idTipoProfesionalResponsable>?</tem:idTipoProfesionalResponsable>\r
+                        <!--Optional:-->\r
+                        <tem:matricula>?</tem:matricula>\r
+                        <tem:cantHorasAsignadas>?</tem:cantHorasAsignadas>\r
+                     </tem:Responsable>\r
+                  </tem:Responsables>\r
+                  <!--Optional:-->\r
+                  <tem:Contratistas>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Contratista>\r
+                        <tem:idContratista>?</tem:idContratista>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <!--Optional:-->\r
+                        <tem:cuit>?</tem:cuit>\r
+                        <tem:ciiu>?</tem:ciiu>\r
+                        <tem:cantidadTrabajadores>?</tem:cantidadTrabajadores>\r
+                     </tem:Contratista>\r
+                  </tem:Contratistas>\r
+               </tem:EstablecimientoDeclarado>\r
+            </tem:EstablecimientosDeclarados>\r
+            <!--Optional:-->\r
+            <tem:EmpresasTercerizadas>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:EmpresaTercerizada>\r
+                  <tem:idEmpresaTercerizada>?</tem:idEmpresaTercerizada>\r
+                  <tem:fechaInsert>?</tem:fechaInsert>\r
+                  <tem:idEstablecimientoEmpresa>?</tem:idEstablecimientoEmpresa>\r
+                  <!--Optional:-->\r
+                  <tem:cuit>?</tem:cuit>\r
+                  <tem:ciiu>?</tem:ciiu>\r
+                  <tem:cantidadTrabajadores>?</tem:cantidadTrabajadores>\r
+               </tem:EmpresaTercerizada>\r
+            </tem:EmpresasTercerizadas>\r
+         </tem:request>\r
+      </tem:ModificacionDeAnexoI>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/ModificacionDeAnexoI"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="3145216d-c02d-40f8-9367-ba0da750ed0e" wsaVersion="NONE" name="AnexoVSoap" type="wsdl" bindingName="{http://tempuri.org/}AnexoVSoap" soapVersion="1_1" anonymous="optional" definition="https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/AnexoV.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/AnexoV.asmx?WSDL"><con:part><con:url>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/AnexoV.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AltaDeAnexoV">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:AnexoVRequest"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AnexoVRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cuit" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Sustancias" type="tns:ArrayOfSustancia"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSustancia">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Sustancia" nillable="true" type="tns:Sustancia"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Sustancia">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idSustanciaDeclarada" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInsert" nillable="true" type="s:date"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idEstablecimientoEmpresa" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idSustancia" nillable="true" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="nombreComercial" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="cantidadAnual" nillable="true" type="s:double"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idUnidadDeMedida" nillable="true" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Utilizaciones" type="tns:ArrayOfUtilizacion"/>
+          <s:element minOccurs="0" maxOccurs="1" name="PuestosAfectados" type="tns:ArrayOfPuestoAfectado"/>
+          <s:element minOccurs="0" maxOccurs="1" name="EquiposRadiologicos" type="tns:ArrayOfEquipoRadiologico"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Proveedores" type="tns:ArrayOfProveedor"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Compradores" type="tns:ArrayOfComprador"/>
+          <s:element minOccurs="0" maxOccurs="1" name="EstudiosAmbientalesEspecificos" type="tns:ArrayOfEstudioAmbientalEspecifico"/>
+          <s:element minOccurs="0" maxOccurs="1" name="EstudiosBiologicosEspecificos" type="tns:ArrayOfEstudioBiologicoEspecifico"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUtilizacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Utilizacion" nillable="true" type="tns:Utilizacion"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Utilizacion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idSustanciaDeclarada" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idUtilizacion" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInsert" nillable="true" type="s:date"/>
+          <s:element minOccurs="1" maxOccurs="1" name="usoOrigen" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="modoDeEmpleo" nillable="true" type="s:long"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPuestoAfectado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PuestoAfectado" nillable="true" type="tns:PuestoAfectado"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PuestoAfectado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idSustanciaDeclarada" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idPuestoAfectado" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInsert" nillable="true" type="s:date"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idPuesto" nillable="true" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="descripcionActividad" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="informaSobreRiesgos" nillable="true" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="capacitacionSobreRiesgos" nillable="true" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="entregaElementosDeProteccion" nillable="true" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="descripcionEstudios" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="licenciaEspecial" nillable="true" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MedidasPreventivasDelPuesto" type="tns:ArrayOfMedidasPreventivas"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ElementosProteccionPersonal" type="tns:ArrayOfElementosDeProteccion"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMedidasPreventivas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MedidaPreventivaDelPuesto" nillable="true" type="tns:MedidasPreventivas"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MedidasPreventivas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idReferencialDeMedidasPreventivas" nillable="true" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idMedidaPreventiva" nillable="true" type="s:int"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfElementosDeProteccion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ElementoProteccionPersonal" nillable="true" type="tns:ElementosDeProteccion"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ElementosDeProteccion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idReferencialDeElementoDeProteccion" nillable="true" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idElementoDeProteccion" nillable="true" type="s:int"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEquipoRadiologico">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EquipoRadiologico" nillable="true" type="tns:EquipoRadiologico"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EquipoRadiologico">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idSustanciaDeclarada" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idEquipoRadiologico" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInsert" nillable="true" type="s:date"/>
+          <s:element minOccurs="0" maxOccurs="1" name="marca" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="modelo" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idTipoEquipo" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idCaracteristicaEquipo" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idTipoRadiacion" nillable="true" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Actividad" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="RadioisotopoFuente" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idTipoFuente" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="potenciaEquipoKVP" nillable="true" type="s:double"/>
+          <s:element minOccurs="1" maxOccurs="1" name="potenciaEquipomAp" nillable="true" type="s:double"/>
+          <s:element minOccurs="1" maxOccurs="1" name="potenciaEquipoMeV" nillable="true" type="s:double"/>
+          <s:element minOccurs="1" maxOccurs="1" name="procesamientoImagenes" nillable="true" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="metodoProcesamiento" nillable="true" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="observaciones" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="dosimetria" type="tns:Dosimetria"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponsablesDeUso" type="tns:ArrayOfResponsableDeUso"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponsablesDeInstalacion" type="tns:ArrayOfResponsableDeInstalacion"/>
+          <s:element minOccurs="0" maxOccurs="1" name="EncargadosDeProteccionRadiologica" type="tns:ArrayOfEncargadoDeProteccionRadiologica"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Dosimetria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idDosimetria" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idEquiporadiologico" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInsert" nillable="true" type="s:date"/>
+          <s:element minOccurs="1" maxOccurs="1" name="cantidadDePersonal" nillable="true" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="tipoDosimetria" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="metodoDosimetria" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="cuitResponsable" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfResponsableDeUso">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ResponsableDeUso" nillable="true" type="tns:ResponsableDeUso"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResponsableDeUso">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idEquipoRadiologico" nillable="true" type="s:unsignedLong"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idResponsableDeUso" nillable="true" type="s:unsignedLong"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInsert" type="s:date"/>
+          <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="autorizacionIndividual" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="nroPermisoHabilitante" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="matriculaProfesional" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaExpedicion" nillable="true" type="s:date"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaVencimiento" nillable="true" type="s:date"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfResponsableDeInstalacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ResponsableDeInstalacion" nillable="true" type="tns:ResponsableDeInstalacion"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResponsableDeInstalacion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idEquipoRadiologico" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idResponsableDeInstalacion" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInsert" nillable="true" type="s:date"/>
+          <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="nroLicenciaHabilitante" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="domicilioHabilitacion" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaExpedicion" nillable="true" type="s:date"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaVencimiento" nillable="true" type="s:date"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEncargadoDeProteccionRadiologica">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EncargadoDeProteccionRadiologica" nillable="true" type="tns:EncargadoDeProteccionRadiologica"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EncargadoDeProteccionRadiologica">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idEquipoRadiologico" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idEncargadoDeProteccionRadiologica" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInsert" nillable="true" type="s:date"/>
+          <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="tituloProfesional" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="matriculaProfesional" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="nroHabilitacion" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProveedor">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Proveedor" nillable="true" type="tns:Proveedor"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Proveedor">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idSustanciaDeclarada" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idProveedor" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInsert" nillable="true" type="s:date"/>
+          <s:element minOccurs="0" maxOccurs="1" name="cuit" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="nombreComercial" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfComprador">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Comprador" nillable="true" type="tns:Comprador"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Comprador">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idSustanciaDeclarada" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idComprador" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInsert" nillable="true" type="s:date"/>
+          <s:element minOccurs="0" maxOccurs="1" name="cuit" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="nombreComercial" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEstudioAmbientalEspecifico">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EstudioAmbientalEspecifico" nillable="true" type="tns:EstudioAmbientalEspecifico"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstudioAmbientalEspecifico">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idSustanciaDeclarada" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idEstudioAmbientalEspecifico" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInsert" nillable="true" type="s:date"/>
+          <s:element minOccurs="1" maxOccurs="1" name="cantidadFrecuencia" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idUnidadFrecuencia" nillable="true" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="metodologiaEmpleada" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEstudioBiologicoEspecifico">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EstudioBiologicoEspecifico" nillable="true" type="tns:EstudioBiologicoEspecifico"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstudioBiologicoEspecifico">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idSustanciaDeclarada" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idEstudioBiologicoEspecifico" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInsert" nillable="true" type="s:date"/>
+          <s:element minOccurs="1" maxOccurs="1" name="cantidadFrecuencia" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idUnidadFrecuencia" nillable="true" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="analisisEstudiosComplementacion" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AltaDeAnexoVResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AltaDeAnexoVResult" type="tns:AnexoVResponse"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AnexoVResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Cuit" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Sustancias" type="tns:ArrayOfSustancia"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ResponseBase">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:AbstractResponse"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AbstractResponse" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoOrganismo" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="IdOrganismo" type="s:long"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TicketHeader" type="tns:TicketHeader"/>
+      <s:complexType name="TicketHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="securityticket" type="s:string"/>
+        </s:sequence>
+        <s:anyAttribute/>
+      </s:complexType>
+      <s:element name="ModificacionDeAnexoV">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:AnexoVModificacionRequest"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AnexoVModificacionRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:AnexoVRequest"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ModificacionDeAnexoVResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModificacionDeAnexoVResult" type="tns:ModificacionAnexoVResponse"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ModificacionAnexoVResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cuit" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Sustancias" type="tns:ArrayOfSustanciaResponse"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSustanciaResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Sustancia" nillable="true" type="tns:SustanciaResponse"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SustanciaResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Sustancia">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ActividadesAfectadas" type="tns:ArrayOfActividad"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfActividad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ActividadAfectada" nillable="true" type="tns:Actividad"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Actividad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idActividad" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idEstablecimientoEmpresa" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInsert" nillable="true" type="s:date"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idPuestoDeclarado" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idSectorDeclarado" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="permanente" nillable="true" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idSustanciaDeclarada" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInicioExposicion" nillable="true" type="s:date"/>
+          <s:element minOccurs="1" maxOccurs="1" name="fechaFinExposicion" nillable="true" type="s:date"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ExamenesMedicos" type="tns:ArrayOfExamenMedico"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfExamenMedico">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ExamenMedico" nillable="true" type="tns:ExamenMedico"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExamenMedico">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idExamenDeclarado" nillable="true" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="idExamen" nillable="true" type="s:long"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BajaDeAnexoV">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:AnexoVBajaRequest"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AnexoVBajaRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cuit" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Sustancias" type="tns:ArrayOfUnsignedLong"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Utilizaciones" type="tns:ArrayOfUnsignedLong1"/>
+          <s:element minOccurs="0" maxOccurs="1" name="PuestosAfectados" type="tns:ArrayOfUnsignedLong2"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MedidasPreventivas" type="tns:ArrayOfUnsignedLong3"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ElementosDeProteccionPersonal" type="tns:ArrayOfUnsignedLong4"/>
+          <s:element minOccurs="0" maxOccurs="1" name="EquiposRadiologicos" type="tns:ArrayOfUnsignedLong5"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Dosimetrias" type="tns:ArrayOfUnsignedLong6"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Proveedores" type="tns:ArrayOfUnsignedLong7"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Compradores" type="tns:ArrayOfUnsignedLong8"/>
+          <s:element minOccurs="0" maxOccurs="1" name="EstudiosAmbientalesEspecificos" type="tns:ArrayOfUnsignedLong9"/>
+          <s:element minOccurs="0" maxOccurs="1" name="EstudiosBiologicosEspecificos" type="tns:ArrayOfUnsignedLong10"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponsablesDeUso" type="tns:ArrayOfUnsignedLong11"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponsablesDeInstalacion" type="tns:ArrayOfUnsignedLong12"/>
+          <s:element minOccurs="0" maxOccurs="1" name="EncargadosDeProteccionRadiologica" type="tns:ArrayOfUnsignedLong13"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnsignedLong">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IdSustancia" type="s:unsignedLong"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnsignedLong1">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IdUtilizacion" type="s:unsignedLong"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnsignedLong2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IdPuestoAfectado" type="s:unsignedLong"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnsignedLong3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IdMedidaPreventiva" type="s:unsignedLong"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnsignedLong4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IdElementoDeProteccionPersonal" type="s:unsignedLong"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnsignedLong5">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IdEquipoRadiologico" type="s:unsignedLong"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnsignedLong6">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IdDosimetria" type="s:unsignedLong"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnsignedLong7">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IdProveedor" type="s:unsignedLong"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnsignedLong8">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IdComprador" type="s:unsignedLong"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnsignedLong9">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IdEstudioAmbientaleEspecifico" type="s:unsignedLong"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnsignedLong10">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IdEstudioBiologicoEspecifico" type="s:unsignedLong"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnsignedLong11">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IdResponsableDeUso" type="s:unsignedLong"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnsignedLong12">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IdResponsableDeInstalacion" type="s:unsignedLong"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnsignedLong13">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IdEncargadoDeProteccionRadiologica" type="s:unsignedLong"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BajaDeAnexoVResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BajaDeAnexoVResult" type="tns:BajaAnexoVResponse"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BajaAnexoVResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Sustancias" type="tns:ArrayOfUnsignedLong"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Utilizaciones" type="tns:ArrayOfUnsignedLong1"/>
+          <s:element minOccurs="0" maxOccurs="1" name="PuestosAfectados" type="tns:ArrayOfUnsignedLong2"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MedidasPreventivas" type="tns:ArrayOfUnsignedLong3"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ElementosDeProteccionPersonal" type="tns:ArrayOfUnsignedLong4"/>
+          <s:element minOccurs="0" maxOccurs="1" name="EquiposRadiologicos" type="tns:ArrayOfUnsignedLong5"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Dosimetrias" type="tns:ArrayOfUnsignedLong6"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Proveedores" type="tns:ArrayOfUnsignedLong7"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Compradores" type="tns:ArrayOfUnsignedLong8"/>
+          <s:element minOccurs="0" maxOccurs="1" name="EstudiosAmbientalesEspecificos" type="tns:ArrayOfUnsignedLong9"/>
+          <s:element minOccurs="0" maxOccurs="1" name="EstudiosBiologicosEspecificos" type="tns:ArrayOfUnsignedLong10"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponsablesDeUso" type="tns:ArrayOfUnsignedLong11"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponsablesDeInstalacion" type="tns:ArrayOfUnsignedLong12"/>
+          <s:element minOccurs="0" maxOccurs="1" name="EncargadosDeProteccionRadiologica" type="tns:ArrayOfUnsignedLong13"/>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AltaDeAnexoVSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaDeAnexoV"/>
+  </wsdl:message>
+  <wsdl:message name="AltaDeAnexoVSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaDeAnexoVResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AltaDeAnexoVTicketHeader">
+    <wsdl:part name="TicketHeader" element="tns:TicketHeader"/>
+  </wsdl:message>
+  <wsdl:message name="ModificacionDeAnexoVSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificacionDeAnexoV"/>
+  </wsdl:message>
+  <wsdl:message name="ModificacionDeAnexoVSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificacionDeAnexoVResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ModificacionDeAnexoVTicketHeader">
+    <wsdl:part name="TicketHeader" element="tns:TicketHeader"/>
+  </wsdl:message>
+  <wsdl:message name="BajaDeAnexoVSoapIn">
+    <wsdl:part name="parameters" element="tns:BajaDeAnexoV"/>
+  </wsdl:message>
+  <wsdl:message name="BajaDeAnexoVSoapOut">
+    <wsdl:part name="parameters" element="tns:BajaDeAnexoVResponse"/>
+  </wsdl:message>
+  <wsdl:message name="BajaDeAnexoVTicketHeader">
+    <wsdl:part name="TicketHeader" element="tns:TicketHeader"/>
+  </wsdl:message>
+  <wsdl:portType name="AnexoVSoap">
+    <wsdl:operation name="AltaDeAnexoV">
+      <wsdl:input message="tns:AltaDeAnexoVSoapIn"/>
+      <wsdl:output message="tns:AltaDeAnexoVSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionDeAnexoV">
+      <wsdl:input message="tns:ModificacionDeAnexoVSoapIn"/>
+      <wsdl:output message="tns:ModificacionDeAnexoVSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="BajaDeAnexoV">
+      <wsdl:input message="tns:BajaDeAnexoVSoapIn"/>
+      <wsdl:output message="tns:BajaDeAnexoVSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AnexoVSoap" type="tns:AnexoVSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AltaDeAnexoV">
+      <soap:operation soapAction="http://tempuri.org/AltaDeAnexoV" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:AltaDeAnexoVTicketHeader" part="TicketHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionDeAnexoV">
+      <soap:operation soapAction="http://tempuri.org/ModificacionDeAnexoV" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:ModificacionDeAnexoVTicketHeader" part="TicketHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaDeAnexoV">
+      <soap:operation soapAction="http://tempuri.org/BajaDeAnexoV" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:BajaDeAnexoVTicketHeader" part="TicketHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AnexoVSoap12" type="tns:AnexoVSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AltaDeAnexoV">
+      <soap12:operation soapAction="http://tempuri.org/AltaDeAnexoV" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:AltaDeAnexoVTicketHeader" part="TicketHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificacionDeAnexoV">
+      <soap12:operation soapAction="http://tempuri.org/ModificacionDeAnexoV" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:ModificacionDeAnexoVTicketHeader" part="TicketHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajaDeAnexoV">
+      <soap12:operation soapAction="http://tempuri.org/BajaDeAnexoV" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:BajaDeAnexoVTicketHeader" part="TicketHeader" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AnexoV">
+    <wsdl:port name="AnexoVSoap" binding="tns:AnexoVSoap">
+      <soap:address location="https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/AnexoV.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="AnexoVSoap12" binding="tns:AnexoVSoap12">
+      <soap12:address location="https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/AnexoV.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/AnexoV.asmx</con:endpoint></con:endpoints><con:operation id="a87791c1-f20d-42f8-9535-175aaf479b84" isOneWay="false" action="http://tempuri.org/AltaDeAnexoV" name="AltaDeAnexoV" bindingOperationName="AltaDeAnexoV" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="44aaac9a-7b3f-490e-adbd-d65de8ed1a1d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/AnexoV.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header>\r
+      <tem:TicketHeader>\r
+         <!--Optional:-->\r
+         <tem:securityticket>?</tem:securityticket>\r
+      </tem:TicketHeader>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <tem:AltaDeAnexoV>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <!--Optional:-->\r
+            <tem:Cuit>?</tem:Cuit>\r
+            <!--Optional:-->\r
+            <tem:Sustancias>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:Sustancia>\r
+                  <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                  <tem:fechaInsert>?</tem:fechaInsert>\r
+                  <tem:idEstablecimientoEmpresa>?</tem:idEstablecimientoEmpresa>\r
+                  <tem:idSustancia>?</tem:idSustancia>\r
+                  <!--Optional:-->\r
+                  <tem:nombreComercial>?</tem:nombreComercial>\r
+                  <tem:cantidadAnual>?</tem:cantidadAnual>\r
+                  <tem:idUnidadDeMedida>?</tem:idUnidadDeMedida>\r
+                  <!--Optional:-->\r
+                  <tem:Utilizaciones>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Utilizacion>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:idUtilizacion>?</tem:idUtilizacion>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <tem:usoOrigen>?</tem:usoOrigen>\r
+                        <tem:modoDeEmpleo>?</tem:modoDeEmpleo>\r
+                     </tem:Utilizacion>\r
+                  </tem:Utilizaciones>\r
+                  <!--Optional:-->\r
+                  <tem:PuestosAfectados>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:PuestoAfectado>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:idPuestoAfectado>?</tem:idPuestoAfectado>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <tem:idPuesto>?</tem:idPuesto>\r
+                        <!--Optional:-->\r
+                        <tem:descripcionActividad>?</tem:descripcionActividad>\r
+                        <tem:informaSobreRiesgos>?</tem:informaSobreRiesgos>\r
+                        <tem:capacitacionSobreRiesgos>?</tem:capacitacionSobreRiesgos>\r
+                        <tem:entregaElementosDeProteccion>?</tem:entregaElementosDeProteccion>\r
+                        <!--Optional:-->\r
+                        <tem:descripcionEstudios>?</tem:descripcionEstudios>\r
+                        <tem:licenciaEspecial>?</tem:licenciaEspecial>\r
+                        <!--Optional:-->\r
+                        <tem:MedidasPreventivasDelPuesto>\r
+                           <!--Zero or more repetitions:-->\r
+                           <tem:MedidaPreventivaDelPuesto>\r
+                              <tem:idReferencialDeMedidasPreventivas>?</tem:idReferencialDeMedidasPreventivas>\r
+                              <tem:idMedidaPreventiva>?</tem:idMedidaPreventiva>\r
+                           </tem:MedidaPreventivaDelPuesto>\r
+                        </tem:MedidasPreventivasDelPuesto>\r
+                        <!--Optional:-->\r
+                        <tem:ElementosProteccionPersonal>\r
+                           <!--Zero or more repetitions:-->\r
+                           <tem:ElementoProteccionPersonal>\r
+                              <tem:idReferencialDeElementoDeProteccion>?</tem:idReferencialDeElementoDeProteccion>\r
+                              <tem:idElementoDeProteccion>?</tem:idElementoDeProteccion>\r
+                           </tem:ElementoProteccionPersonal>\r
+                        </tem:ElementosProteccionPersonal>\r
+                     </tem:PuestoAfectado>\r
+                  </tem:PuestosAfectados>\r
+                  <!--Optional:-->\r
+                  <tem:EquiposRadiologicos>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:EquipoRadiologico>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:idEquipoRadiologico>?</tem:idEquipoRadiologico>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <!--Optional:-->\r
+                        <tem:marca>?</tem:marca>\r
+                        <!--Optional:-->\r
+                        <tem:modelo>?</tem:modelo>\r
+                        <tem:idTipoEquipo>?</tem:idTipoEquipo>\r
+                        <tem:idCaracteristicaEquipo>?</tem:idCaracteristicaEquipo>\r
+                        <tem:idTipoRadiacion>?</tem:idTipoRadiacion>\r
+                        <!--Optional:-->\r
+                        <tem:Actividad>?</tem:Actividad>\r
+                        <!--Optional:-->\r
+                        <tem:RadioisotopoFuente>?</tem:RadioisotopoFuente>\r
+                        <tem:idTipoFuente>?</tem:idTipoFuente>\r
+                        <tem:potenciaEquipoKVP>?</tem:potenciaEquipoKVP>\r
+                        <tem:potenciaEquipomAp>?</tem:potenciaEquipomAp>\r
+                        <tem:potenciaEquipoMeV>?</tem:potenciaEquipoMeV>\r
+                        <tem:procesamientoImagenes>?</tem:procesamientoImagenes>\r
+                        <tem:metodoProcesamiento>?</tem:metodoProcesamiento>\r
+                        <!--Optional:-->\r
+                        <tem:observaciones>?</tem:observaciones>\r
+                        <!--Optional:-->\r
+                        <tem:dosimetria>\r
+                           <tem:idDosimetria>?</tem:idDosimetria>\r
+                           <tem:idEquiporadiologico>?</tem:idEquiporadiologico>\r
+                           <tem:fechaInsert>?</tem:fechaInsert>\r
+                           <tem:cantidadDePersonal>?</tem:cantidadDePersonal>\r
+                           <!--Optional:-->\r
+                           <tem:tipoDosimetria>?</tem:tipoDosimetria>\r
+                           <!--Optional:-->\r
+                           <tem:metodoDosimetria>?</tem:metodoDosimetria>\r
+                           <!--Optional:-->\r
+                           <tem:cuitResponsable>?</tem:cuitResponsable>\r
+                        </tem:dosimetria>\r
+                        <!--Optional:-->\r
+                        <tem:ResponsablesDeUso>\r
+                           <!--Zero or more repetitions:-->\r
+                           <tem:ResponsableDeUso>\r
+                              <tem:idEquipoRadiologico>?</tem:idEquipoRadiologico>\r
+                              <tem:idResponsableDeUso>?</tem:idResponsableDeUso>\r
+                              <tem:fechaInsert>?</tem:fechaInsert>\r
+                              <!--Optional:-->\r
+                              <tem:cuil>?</tem:cuil>\r
+                              <!--Optional:-->\r
+                              <tem:autorizacionIndividual>?</tem:autorizacionIndividual>\r
+                              <!--Optional:-->\r
+                              <tem:nroPermisoHabilitante>?</tem:nroPermisoHabilitante>\r
+                              <!--Optional:-->\r
+                              <tem:matriculaProfesional>?</tem:matriculaProfesional>\r
+                              <tem:fechaExpedicion>?</tem:fechaExpedicion>\r
+                              <tem:fechaVencimiento>?</tem:fechaVencimiento>\r
+                           </tem:ResponsableDeUso>\r
+                        </tem:ResponsablesDeUso>\r
+                        <!--Optional:-->\r
+                        <tem:ResponsablesDeInstalacion>\r
+                           <!--Zero or more repetitions:-->\r
+                           <tem:ResponsableDeInstalacion>\r
+                              <tem:idEquipoRadiologico>?</tem:idEquipoRadiologico>\r
+                              <tem:idResponsableDeInstalacion>?</tem:idResponsableDeInstalacion>\r
+                              <tem:fechaInsert>?</tem:fechaInsert>\r
+                              <!--Optional:-->\r
+                              <tem:cuil>?</tem:cuil>\r
+                              <!--Optional:-->\r
+                              <tem:nroLicenciaHabilitante>?</tem:nroLicenciaHabilitante>\r
+                              <!--Optional:-->\r
+                              <tem:domicilioHabilitacion>?</tem:domicilioHabilitacion>\r
+                              <tem:fechaExpedicion>?</tem:fechaExpedicion>\r
+                              <tem:fechaVencimiento>?</tem:fechaVencimiento>\r
+                           </tem:ResponsableDeInstalacion>\r
+                        </tem:ResponsablesDeInstalacion>\r
+                        <!--Optional:-->\r
+                        <tem:EncargadosDeProteccionRadiologica>\r
+                           <!--Zero or more repetitions:-->\r
+                           <tem:EncargadoDeProteccionRadiologica>\r
+                              <tem:idEquipoRadiologico>?</tem:idEquipoRadiologico>\r
+                              <tem:idEncargadoDeProteccionRadiologica>?</tem:idEncargadoDeProteccionRadiologica>\r
+                              <tem:fechaInsert>?</tem:fechaInsert>\r
+                              <!--Optional:-->\r
+                              <tem:cuil>?</tem:cuil>\r
+                              <!--Optional:-->\r
+                              <tem:tituloProfesional>?</tem:tituloProfesional>\r
+                              <!--Optional:-->\r
+                              <tem:matriculaProfesional>?</tem:matriculaProfesional>\r
+                              <!--Optional:-->\r
+                              <tem:nroHabilitacion>?</tem:nroHabilitacion>\r
+                           </tem:EncargadoDeProteccionRadiologica>\r
+                        </tem:EncargadosDeProteccionRadiologica>\r
+                     </tem:EquipoRadiologico>\r
+                  </tem:EquiposRadiologicos>\r
+                  <!--Optional:-->\r
+                  <tem:Proveedores>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Proveedor>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:idProveedor>?</tem:idProveedor>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <!--Optional:-->\r
+                        <tem:cuit>?</tem:cuit>\r
+                        <!--Optional:-->\r
+                        <tem:nombreComercial>?</tem:nombreComercial>\r
+                     </tem:Proveedor>\r
+                  </tem:Proveedores>\r
+                  <!--Optional:-->\r
+                  <tem:Compradores>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Comprador>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:idComprador>?</tem:idComprador>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <!--Optional:-->\r
+                        <tem:cuit>?</tem:cuit>\r
+                        <!--Optional:-->\r
+                        <tem:nombreComercial>?</tem:nombreComercial>\r
+                     </tem:Comprador>\r
+                  </tem:Compradores>\r
+                  <!--Optional:-->\r
+                  <tem:EstudiosAmbientalesEspecificos>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:EstudioAmbientalEspecifico>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:idEstudioAmbientalEspecifico>?</tem:idEstudioAmbientalEspecifico>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <tem:cantidadFrecuencia>?</tem:cantidadFrecuencia>\r
+                        <tem:idUnidadFrecuencia>?</tem:idUnidadFrecuencia>\r
+                        <!--Optional:-->\r
+                        <tem:metodologiaEmpleada>?</tem:metodologiaEmpleada>\r
+                     </tem:EstudioAmbientalEspecifico>\r
+                  </tem:EstudiosAmbientalesEspecificos>\r
+                  <!--Optional:-->\r
+                  <tem:EstudiosBiologicosEspecificos>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:EstudioBiologicoEspecifico>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:idEstudioBiologicoEspecifico>?</tem:idEstudioBiologicoEspecifico>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <tem:cantidadFrecuencia>?</tem:cantidadFrecuencia>\r
+                        <tem:idUnidadFrecuencia>?</tem:idUnidadFrecuencia>\r
+                        <!--Optional:-->\r
+                        <tem:analisisEstudiosComplementacion>?</tem:analisisEstudiosComplementacion>\r
+                     </tem:EstudioBiologicoEspecifico>\r
+                  </tem:EstudiosBiologicosEspecificos>\r
+               </tem:Sustancia>\r
+            </tem:Sustancias>\r
+         </tem:request>\r
+      </tem:AltaDeAnexoV>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/AltaDeAnexoV"/></con:call></con:operation><con:operation id="ff541da8-10a6-4cce-a145-c99251b837e4" isOneWay="false" action="http://tempuri.org/BajaDeAnexoV" name="BajaDeAnexoV" bindingOperationName="BajaDeAnexoV" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="42b2e8e0-fc94-438f-88a8-1520a49d261b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/AnexoV.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header>\r
+      <tem:TicketHeader>\r
+         <!--Optional:-->\r
+         <tem:securityticket>?</tem:securityticket>\r
+      </tem:TicketHeader>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <tem:BajaDeAnexoV>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <!--Optional:-->\r
+            <tem:cuit>?</tem:cuit>\r
+            <!--Optional:-->\r
+            <tem:Sustancias>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdSustancia>?</tem:IdSustancia>\r
+            </tem:Sustancias>\r
+            <!--Optional:-->\r
+            <tem:Utilizaciones>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdUtilizacion>?</tem:IdUtilizacion>\r
+            </tem:Utilizaciones>\r
+            <!--Optional:-->\r
+            <tem:PuestosAfectados>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdPuestoAfectado>?</tem:IdPuestoAfectado>\r
+            </tem:PuestosAfectados>\r
+            <!--Optional:-->\r
+            <tem:MedidasPreventivas>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdMedidaPreventiva>?</tem:IdMedidaPreventiva>\r
+            </tem:MedidasPreventivas>\r
+            <!--Optional:-->\r
+            <tem:ElementosDeProteccionPersonal>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdElementoDeProteccionPersonal>?</tem:IdElementoDeProteccionPersonal>\r
+            </tem:ElementosDeProteccionPersonal>\r
+            <!--Optional:-->\r
+            <tem:EquiposRadiologicos>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdEquipoRadiologico>?</tem:IdEquipoRadiologico>\r
+            </tem:EquiposRadiologicos>\r
+            <!--Optional:-->\r
+            <tem:Dosimetrias>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdDosimetria>?</tem:IdDosimetria>\r
+            </tem:Dosimetrias>\r
+            <!--Optional:-->\r
+            <tem:Proveedores>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdProveedor>?</tem:IdProveedor>\r
+            </tem:Proveedores>\r
+            <!--Optional:-->\r
+            <tem:Compradores>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdComprador>?</tem:IdComprador>\r
+            </tem:Compradores>\r
+            <!--Optional:-->\r
+            <tem:EstudiosAmbientalesEspecificos>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdEstudioAmbientaleEspecifico>?</tem:IdEstudioAmbientaleEspecifico>\r
+            </tem:EstudiosAmbientalesEspecificos>\r
+            <!--Optional:-->\r
+            <tem:EstudiosBiologicosEspecificos>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdEstudioBiologicoEspecifico>?</tem:IdEstudioBiologicoEspecifico>\r
+            </tem:EstudiosBiologicosEspecificos>\r
+            <!--Optional:-->\r
+            <tem:ResponsablesDeUso>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdResponsableDeUso>?</tem:IdResponsableDeUso>\r
+            </tem:ResponsablesDeUso>\r
+            <!--Optional:-->\r
+            <tem:ResponsablesDeInstalacion>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdResponsableDeInstalacion>?</tem:IdResponsableDeInstalacion>\r
+            </tem:ResponsablesDeInstalacion>\r
+            <!--Optional:-->\r
+            <tem:EncargadosDeProteccionRadiologica>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:IdEncargadoDeProteccionRadiologica>?</tem:IdEncargadoDeProteccionRadiologica>\r
+            </tem:EncargadosDeProteccionRadiologica>\r
+         </tem:request>\r
+      </tem:BajaDeAnexoV>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/BajaDeAnexoV"/></con:call></con:operation><con:operation id="b58a1713-be21-4a6b-acce-4d8b248dde79" isOneWay="false" action="http://tempuri.org/ModificacionDeAnexoV" name="ModificacionDeAnexoV" bindingOperationName="ModificacionDeAnexoV" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e6004d94-dcd2-4066-a11b-ce94c8f3ffa6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desarrolloartsws.srt.gob.ar/MapaDeRiesgo/AnexoV.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header>\r
+      <tem:TicketHeader>\r
+         <!--Optional:-->\r
+         <tem:securityticket>?</tem:securityticket>\r
+      </tem:TicketHeader>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <tem:ModificacionDeAnexoV>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <!--Optional:-->\r
+            <tem:Cuit>?</tem:Cuit>\r
+            <!--Optional:-->\r
+            <tem:Sustancias>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:Sustancia>\r
+                  <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                  <tem:fechaInsert>?</tem:fechaInsert>\r
+                  <tem:idEstablecimientoEmpresa>?</tem:idEstablecimientoEmpresa>\r
+                  <tem:idSustancia>?</tem:idSustancia>\r
+                  <!--Optional:-->\r
+                  <tem:nombreComercial>?</tem:nombreComercial>\r
+                  <tem:cantidadAnual>?</tem:cantidadAnual>\r
+                  <tem:idUnidadDeMedida>?</tem:idUnidadDeMedida>\r
+                  <!--Optional:-->\r
+                  <tem:Utilizaciones>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Utilizacion>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:idUtilizacion>?</tem:idUtilizacion>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <tem:usoOrigen>?</tem:usoOrigen>\r
+                        <tem:modoDeEmpleo>?</tem:modoDeEmpleo>\r
+                     </tem:Utilizacion>\r
+                  </tem:Utilizaciones>\r
+                  <!--Optional:-->\r
+                  <tem:PuestosAfectados>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:PuestoAfectado>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:idPuestoAfectado>?</tem:idPuestoAfectado>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <tem:idPuesto>?</tem:idPuesto>\r
+                        <!--Optional:-->\r
+                        <tem:descripcionActividad>?</tem:descripcionActividad>\r
+                        <tem:informaSobreRiesgos>?</tem:informaSobreRiesgos>\r
+                        <tem:capacitacionSobreRiesgos>?</tem:capacitacionSobreRiesgos>\r
+                        <tem:entregaElementosDeProteccion>?</tem:entregaElementosDeProteccion>\r
+                        <!--Optional:-->\r
+                        <tem:descripcionEstudios>?</tem:descripcionEstudios>\r
+                        <tem:licenciaEspecial>?</tem:licenciaEspecial>\r
+                        <!--Optional:-->\r
+                        <tem:MedidasPreventivasDelPuesto>\r
+                           <!--Zero or more repetitions:-->\r
+                           <tem:MedidaPreventivaDelPuesto>\r
+                              <tem:idReferencialDeMedidasPreventivas>?</tem:idReferencialDeMedidasPreventivas>\r
+                              <tem:idMedidaPreventiva>?</tem:idMedidaPreventiva>\r
+                           </tem:MedidaPreventivaDelPuesto>\r
+                        </tem:MedidasPreventivasDelPuesto>\r
+                        <!--Optional:-->\r
+                        <tem:ElementosProteccionPersonal>\r
+                           <!--Zero or more repetitions:-->\r
+                           <tem:ElementoProteccionPersonal>\r
+                              <tem:idReferencialDeElementoDeProteccion>?</tem:idReferencialDeElementoDeProteccion>\r
+                              <tem:idElementoDeProteccion>?</tem:idElementoDeProteccion>\r
+                           </tem:ElementoProteccionPersonal>\r
+                        </tem:ElementosProteccionPersonal>\r
+                     </tem:PuestoAfectado>\r
+                  </tem:PuestosAfectados>\r
+                  <!--Optional:-->\r
+                  <tem:EquiposRadiologicos>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:EquipoRadiologico>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:idEquipoRadiologico>?</tem:idEquipoRadiologico>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <!--Optional:-->\r
+                        <tem:marca>?</tem:marca>\r
+                        <!--Optional:-->\r
+                        <tem:modelo>?</tem:modelo>\r
+                        <tem:idTipoEquipo>?</tem:idTipoEquipo>\r
+                        <tem:idCaracteristicaEquipo>?</tem:idCaracteristicaEquipo>\r
+                        <tem:idTipoRadiacion>?</tem:idTipoRadiacion>\r
+                        <!--Optional:-->\r
+                        <tem:Actividad>?</tem:Actividad>\r
+                        <!--Optional:-->\r
+                        <tem:RadioisotopoFuente>?</tem:RadioisotopoFuente>\r
+                        <tem:idTipoFuente>?</tem:idTipoFuente>\r
+                        <tem:potenciaEquipoKVP>?</tem:potenciaEquipoKVP>\r
+                        <tem:potenciaEquipomAp>?</tem:potenciaEquipomAp>\r
+                        <tem:potenciaEquipoMeV>?</tem:potenciaEquipoMeV>\r
+                        <tem:procesamientoImagenes>?</tem:procesamientoImagenes>\r
+                        <tem:metodoProcesamiento>?</tem:metodoProcesamiento>\r
+                        <!--Optional:-->\r
+                        <tem:observaciones>?</tem:observaciones>\r
+                        <!--Optional:-->\r
+                        <tem:dosimetria>\r
+                           <tem:idDosimetria>?</tem:idDosimetria>\r
+                           <tem:idEquiporadiologico>?</tem:idEquiporadiologico>\r
+                           <tem:fechaInsert>?</tem:fechaInsert>\r
+                           <tem:cantidadDePersonal>?</tem:cantidadDePersonal>\r
+                           <!--Optional:-->\r
+                           <tem:tipoDosimetria>?</tem:tipoDosimetria>\r
+                           <!--Optional:-->\r
+                           <tem:metodoDosimetria>?</tem:metodoDosimetria>\r
+                           <!--Optional:-->\r
+                           <tem:cuitResponsable>?</tem:cuitResponsable>\r
+                        </tem:dosimetria>\r
+                        <!--Optional:-->\r
+                        <tem:ResponsablesDeUso>\r
+                           <!--Zero or more repetitions:-->\r
+                           <tem:ResponsableDeUso>\r
+                              <tem:idEquipoRadiologico>?</tem:idEquipoRadiologico>\r
+                              <tem:idResponsableDeUso>?</tem:idResponsableDeUso>\r
+                              <tem:fechaInsert>?</tem:fechaInsert>\r
+                              <!--Optional:-->\r
+                              <tem:cuil>?</tem:cuil>\r
+                              <!--Optional:-->\r
+                              <tem:autorizacionIndividual>?</tem:autorizacionIndividual>\r
+                              <!--Optional:-->\r
+                              <tem:nroPermisoHabilitante>?</tem:nroPermisoHabilitante>\r
+                              <!--Optional:-->\r
+                              <tem:matriculaProfesional>?</tem:matriculaProfesional>\r
+                              <tem:fechaExpedicion>?</tem:fechaExpedicion>\r
+                              <tem:fechaVencimiento>?</tem:fechaVencimiento>\r
+                           </tem:ResponsableDeUso>\r
+                        </tem:ResponsablesDeUso>\r
+                        <!--Optional:-->\r
+                        <tem:ResponsablesDeInstalacion>\r
+                           <!--Zero or more repetitions:-->\r
+                           <tem:ResponsableDeInstalacion>\r
+                              <tem:idEquipoRadiologico>?</tem:idEquipoRadiologico>\r
+                              <tem:idResponsableDeInstalacion>?</tem:idResponsableDeInstalacion>\r
+                              <tem:fechaInsert>?</tem:fechaInsert>\r
+                              <!--Optional:-->\r
+                              <tem:cuil>?</tem:cuil>\r
+                              <!--Optional:-->\r
+                              <tem:nroLicenciaHabilitante>?</tem:nroLicenciaHabilitante>\r
+                              <!--Optional:-->\r
+                              <tem:domicilioHabilitacion>?</tem:domicilioHabilitacion>\r
+                              <tem:fechaExpedicion>?</tem:fechaExpedicion>\r
+                              <tem:fechaVencimiento>?</tem:fechaVencimiento>\r
+                           </tem:ResponsableDeInstalacion>\r
+                        </tem:ResponsablesDeInstalacion>\r
+                        <!--Optional:-->\r
+                        <tem:EncargadosDeProteccionRadiologica>\r
+                           <!--Zero or more repetitions:-->\r
+                           <tem:EncargadoDeProteccionRadiologica>\r
+                              <tem:idEquipoRadiologico>?</tem:idEquipoRadiologico>\r
+                              <tem:idEncargadoDeProteccionRadiologica>?</tem:idEncargadoDeProteccionRadiologica>\r
+                              <tem:fechaInsert>?</tem:fechaInsert>\r
+                              <!--Optional:-->\r
+                              <tem:cuil>?</tem:cuil>\r
+                              <!--Optional:-->\r
+                              <tem:tituloProfesional>?</tem:tituloProfesional>\r
+                              <!--Optional:-->\r
+                              <tem:matriculaProfesional>?</tem:matriculaProfesional>\r
+                              <!--Optional:-->\r
+                              <tem:nroHabilitacion>?</tem:nroHabilitacion>\r
+                           </tem:EncargadoDeProteccionRadiologica>\r
+                        </tem:EncargadosDeProteccionRadiologica>\r
+                     </tem:EquipoRadiologico>\r
+                  </tem:EquiposRadiologicos>\r
+                  <!--Optional:-->\r
+                  <tem:Proveedores>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Proveedor>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:idProveedor>?</tem:idProveedor>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <!--Optional:-->\r
+                        <tem:cuit>?</tem:cuit>\r
+                        <!--Optional:-->\r
+                        <tem:nombreComercial>?</tem:nombreComercial>\r
+                     </tem:Proveedor>\r
+                  </tem:Proveedores>\r
+                  <!--Optional:-->\r
+                  <tem:Compradores>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:Comprador>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:idComprador>?</tem:idComprador>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <!--Optional:-->\r
+                        <tem:cuit>?</tem:cuit>\r
+                        <!--Optional:-->\r
+                        <tem:nombreComercial>?</tem:nombreComercial>\r
+                     </tem:Comprador>\r
+                  </tem:Compradores>\r
+                  <!--Optional:-->\r
+                  <tem:EstudiosAmbientalesEspecificos>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:EstudioAmbientalEspecifico>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:idEstudioAmbientalEspecifico>?</tem:idEstudioAmbientalEspecifico>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <tem:cantidadFrecuencia>?</tem:cantidadFrecuencia>\r
+                        <tem:idUnidadFrecuencia>?</tem:idUnidadFrecuencia>\r
+                        <!--Optional:-->\r
+                        <tem:metodologiaEmpleada>?</tem:metodologiaEmpleada>\r
+                     </tem:EstudioAmbientalEspecifico>\r
+                  </tem:EstudiosAmbientalesEspecificos>\r
+                  <!--Optional:-->\r
+                  <tem:EstudiosBiologicosEspecificos>\r
+                     <!--Zero or more repetitions:-->\r
+                     <tem:EstudioBiologicoEspecifico>\r
+                        <tem:idSustanciaDeclarada>?</tem:idSustanciaDeclarada>\r
+                        <tem:idEstudioBiologicoEspecifico>?</tem:idEstudioBiologicoEspecifico>\r
+                        <tem:fechaInsert>?</tem:fechaInsert>\r
+                        <tem:cantidadFrecuencia>?</tem:cantidadFrecuencia>\r
+                        <tem:idUnidadFrecuencia>?</tem:idUnidadFrecuencia>\r
+                        <!--Optional:-->\r
+                        <tem:analisisEstudiosComplementacion>?</tem:analisisEstudiosComplementacion>\r
+                     </tem:EstudioBiologicoEspecifico>\r
+                  </tem:EstudiosBiologicosEspecificos>\r
+               </tem:Sustancia>\r
+            </tem:Sustancias>\r
+         </tem:request>\r
+      </tem:ModificacionDeAnexoV>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/ModificacionDeAnexoV"/></con:call></con:operation></con:interface><con:properties><con:property><con:name>Ticket</con:name><con:value/></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
